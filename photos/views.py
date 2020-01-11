@@ -23,8 +23,7 @@ def post_add_photos(req):
 
 def get_photos_home(req):
     all_photos=Photos.objects.all()
-    if 'query_lable' in req.GET:
-        all_photos=Photos.objects.filter(label=req.GET['query_lable'])
+
 
     context={
         "photos":all_photos
