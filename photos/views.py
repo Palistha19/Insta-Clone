@@ -2,6 +2,10 @@ from django.shortcuts import render
 
 # Create your views here.
 
+def get_add_photos(req):
+    return render(req,'add_photos.html')
+
+
 def post_add_photos(req):
     label=req.POST["label"]
     caption=req.POST["caption"]
