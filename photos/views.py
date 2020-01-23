@@ -21,9 +21,18 @@ def post_add_photos(req):
 
     return redirect('photos_home')
 
+
+
+
+def delete_photos(req,ID):
+    photos=Photos.objects.get(id=ID)
+    photos.delete()
+    return redirect("photos_home")
+
 def get_photos_home(req):
     all_photos=Photos.objects.all()
-
+    if 'query_lable' in req.GET:
+        all_photos=Photos.objects.filter(label=req.GET['query_lable'])
 
     context={
         "photos":all_photos
